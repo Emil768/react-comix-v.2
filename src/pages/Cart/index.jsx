@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./Cart.scss";
-import CartItem from "../../components/CartItem/CartItem";
+import CartItem from "../../components/CartItem";
 
 import { Link } from "react-router-dom";
 

@@ -91,9 +91,33 @@
     },
     {
       "id": 11,
+      "imageUrl": "https://www.bookvoed.ru/files/1836/12/42/20/04.jpg",
+      "name": "Магическая битва. Книга 1. Двуликий Сукуна. Проклятый плод",
+      "price": 827,
+      "category": 0,
+      "rating": 5
+    },
+    {
+      "id": 12,
       "imageUrl": "https://www.bookvoed.ru/files/1836/45/26/84/5.jpeg",
       "name": "Стэн Ли. Создатель великой вселенной Marvel  ",
+      "price": 926,
+      "category": 0,
+      "rating": 5
+    },
+    {
+      "id": 13,
+      "imageUrl": "https://www.bookvoed.ru/files/1836/12/17/93/17.jpg",
+      "name": " Человек-бензопила. Книга 1",
       "price": 589,
+      "category": 0,
+      "rating": 5
+    },
+    {
+      "id": 14,
+      "imageUrl": "https://www.bookvoed.ru/files/1836/11/76/07/22.jpg",
+      "name": "Атака на титанов. Книга 17",
+      "price": 773,
       "category": 0,
       "rating": 5
     }

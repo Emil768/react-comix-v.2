@@ -19,11 +19,6 @@ ul {
   padding: 0;
 }
 
-.container {
-  width: 94%;
-  margin: 0 auto;
-}
-
 .App {
   width: calc(100vw - 100px);
   height: 100%;

@@ -4,12 +4,13 @@ import { useSelector } from "react-redux";
 import logo from "../../img/42344a3a55c3c39a6909d8c0d28ffb27 1.png";
 
 import { Link } from "react-router-dom";
+import Container from "../Container";
 
 function Header() {
   const totalCount = 0;
   return (
     <div className="header">
-      <div className="container">
+      <Container>
         <div className="header__content">
           <Link to="/">
             <div className="header__logo">
@@ -54,7 +55,7 @@ function Header() {
             </Link>
           </div>
         </div>
-      </div>
+      </Container>
     </div>
   );
 }
