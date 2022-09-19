@@ -10,15 +10,31 @@ interface Comix {
   rating: number;
 }
 
+interface SortProps {
+  type: string;
+  order: string;
+}
+
+interface FilterProps {
+  category: number | null;
+  sortBy: SortProps;
+}
+
 interface ComixState {
   comix: Comix[];
   status: string;
 }
 
-export const fetchComix = createAsyncThunk<Comix[]>(
+export const fetchComix = createAsyncThunk<Comix[], FilterProps>(
   "comix/fetchComix",
-  async () => {
-    const { data } = await axios.get("http://localhost:3001/comix");
+  async (params) => {
+    const { category, sortBy } = params;
+
+    const { data } = await axios.get(
+      `http://localhost:3001/comix?${
+        category !== null ? `category=${category}` : ""
+      }&_sort=${sortBy.type}&_order=${sortBy.order}`
+    );
     return data;
   }
 );

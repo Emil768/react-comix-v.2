@@ -27,7 +27,6 @@ const filters = createSlice({
       state.category = action.payload;
     },
     setSortType(state, action: PayloadAction<SortProps>) {
-      console.log(action.payload);
       state.sortBy = {
         type: action.payload.type,
         order: action.payload.order,
