@@ -28,21 +28,20 @@ function Content() {
     <div className={styles.content}>
       <Container>
         <div className={styles.content__top}>
-          <Categories />
-          <SortPopup />
+          <Categories activeCategory={category} />
+          <SortPopup activeSortType={sortBy} />
         </div>
         <h2 className={styles.content__title}>Все комиксы</h2>
         <div className={styles.content__items}>
-          {isLoaded
-            ? comix.map((item) => <ComixBlock {...item} key={item.id} />)
-            : Array(comix.length)
-                .fill(0)
-                .map((_, index) => (
-                  <LoadingBlock key={index} />
-                ))
-              // <div className={styles.content__empty}>
-              //   <ClipLoader color="#e34d4d" />
-              // </div>
+          {
+            isLoaded
+              ? comix.map((item) => <ComixBlock {...item} key={item.id} />)
+              : Array(comix.length)
+                  .fill(0)
+                  .map((_, index) => <LoadingBlock key={index} />)
+            // <div className={styles.content__empty}>
+            //   <ClipLoader color="#e34d4d" />
+            // </div>
           }
         </div>
       </Container>

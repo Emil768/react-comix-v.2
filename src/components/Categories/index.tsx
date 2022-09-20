@@ -2,20 +2,22 @@ import React, { memo, useState } from "react";
 
 import styles from "../Categories/categories.module.scss";
 import { categoryNames } from "../../designations";
-import { useDispatch } from "react-redux";
 import { setCategoryIndex } from "../../redux/slices/filtersReducer";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 
-type ActiveCategory = number | null;
+type IndexProps = number | null;
 
-let Categories = memo(function Categories() {
-  const [activeCategory, setActiveCategory] = useState<ActiveCategory>(null);
+interface CategoriesProps {
+  activeCategory: IndexProps;
+}
 
+const Categories: React.FC<CategoriesProps> = React.memo(function Categories({
+  activeCategory,
+}: CategoriesProps) {
   const dispatch = useAppDispatch();
 
-  const onClickCategory = (index: ActiveCategory) => {
+  const onClickCategory = (index: IndexProps) => {
     dispatch(setCategoryIndex(index));
-    setActiveCategory(index);
   };
 
   return (

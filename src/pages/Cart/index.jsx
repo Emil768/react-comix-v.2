@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import "./Cart.scss";
+import styles from "./Cart.module.scss";
 import CartItem from "../../components/CartItem";
 
 import { Link } from "react-router-dom";
@@ -11,11 +11,11 @@ function Cart() {
   const totalCount = 0;
   const totalPrice = 0;
   return (
-    <div className="container--cart">
+    <div className={styles.container__cart}>
       {totalCount ? (
-        <div className="cart">
-          <div className="cart__top">
-            <h2 className="cart__title">
+        <div className={styles.cart}>
+          <div className={styles.cart__top}>
+            <h2 className={styles.cart__title}>
               <svg
                 width="31"
                 height="31"
@@ -47,7 +47,7 @@ function Cart() {
               </svg>
               Корзина
             </h2>
-            <div className="cart__clear">
+            <div className={styles.cart__clear}>
               <svg
                 width="20"
                 height="20"
@@ -104,8 +104,8 @@ function Cart() {
               );
             })}
           </div> */}
-          <div className="cart__bottom">
-            <div className="cart__bottom-details">
+          <div className={styles.cart__bottom}>
+            <div className={styles.cart__bottomDetails}>
               <span>
                 Всего комиксов: <b>{totalCount}</b>
               </span>
@@ -113,8 +113,8 @@ function Cart() {
                 Сумма заказа: <b>{totalPrice} ₽</b>
               </span>
             </div>
-            <div className="cart__bottom-buttons">
-              <Link className="btn-back" to="/">
+            <div className={styles.cart__bottomButtons}>
+              <Link className={styles.btn__back} to="/">
                 <svg
                   width="8"
                   height="14"
@@ -133,21 +133,24 @@ function Cart() {
 
                 <span>Вернуться назад</span>
               </Link>
-              <a className="btn-pay" href="/#">
+              <a className={styles.btn__pay} href="/#">
                 <span>Оплатить сейчас</span>
               </a>
             </div>
           </div>
         </div>
       ) : (
-        <div className="cart-empty">
+        <div className={styles.cart__empty}>
           <h1>Корзина пустая </h1>
           <p>
             Вероятней всего, вы не купили комиксы. Для того чтобы купить комикс
             перейдите на главную страницу
           </p>
           <img src={cartEmptyImg} alt="empty epmty-img" />
-          <Link className="btn-back btn-empty" to="/">
+          <Link
+            className={[styles.btn__back, styles.btn__empty].join(" ")}
+            to="/"
+          >
             <span>Вернуться назад</span>
           </Link>
         </div>

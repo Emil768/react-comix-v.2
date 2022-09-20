@@ -8,30 +8,31 @@ type PopupClick = MouseEvent & {
   path: Node[];
 };
 
-interface SortProps {
-  name: string;
+interface SortTypeProps {
   type: string;
   order: string;
 }
 
-let SortPopup = memo(function SortPopup() {
+let SortPopup = memo(function SortPopup({
+  activeSortType,
+}: {
+  activeSortType: SortTypeProps;
+}) {
   const [modal, setModal] = useState(false);
-  const [activeLabel, setActiveLabel] = useState("популярности");
 
   const dispatch = useAppDispatch();
 
-  // const activeLabel = sortNames.find(
-  //   (item) => item.type === activeSortType
-  // )?.name;
+  const activeLabel = sortNames.find(
+    (item) => item.type === activeSortType.type
+  )?.name;
 
   const changeModal = () => {
     setModal(!modal);
   };
 
-  const onSelectItem = (obj: SortProps) => {
-    const { name, type, order } = obj;
+  const onSelectItem = (obj: SortTypeProps) => {
+    const { type, order } = obj;
     dispatch(setSortType({ type, order }));
-    setActiveLabel(name);
     setModal(false);
   };
 
@@ -72,7 +73,7 @@ let SortPopup = memo(function SortPopup() {
             {sortNames.map((obj: any, index: any) => {
               return (
                 <li
-                  className={activeLabel === obj.name ? styles.active : null}
+                  className={activeLabel === obj.type ? styles.active : null}
                   onClick={() => onSelectItem(obj)}
                   key={index}
                 >
