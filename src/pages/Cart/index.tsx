@@ -1,15 +1,24 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
 import styles from "./Cart.module.scss";
-import CartItem from "../../components/CartItem";
+import CartItem from "../../components/CartItem/index";
 
 import { Link } from "react-router-dom";
 
 import cartEmptyImg from "../../img/cart-empty-img.png";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { clearItemsCart } from "../../redux/cart/cartReducer";
 
 function Cart() {
-  const totalCount = 0;
-  const totalPrice = 0;
+  const dispatch = useAppDispatch();
+
+  const { items, totalCount, totalPrice } = useAppSelector(
+    (state) => state.cart
+  );
+
+  const onClearCart = () => {
+    dispatch(clearItemsCart());
+  };
+
   return (
     <div className={styles.container__cart}>
       {totalCount ? (
@@ -84,28 +93,16 @@ function Cart() {
                   strokeLinejoin="round"
                 />
               </svg>
-              <span>Очистить корзину</span>
+              <span onClick={onClearCart}>Очистить корзину</span>
             </div>
           </div>
-          {/* <div className="cart__items">
-            {cartComix.map((item, index) => {
-              return (
-                <CartItem
-                  id={item.id}
-                  key={index}
-                  name={item.name}
-                  img={item.imageUrl}
-                  totalPrice={items[item.id].totalPrice}
-                  itemCount={items[item.id].items.length}
-                  removeItem={removeComix}
-                  plusComix={plusComix}
-                  minusComix={minusComix}
-                />
-              );
+          <div className={styles.cart__items}>
+            {items.map((item) => {
+              return <CartItem key={item.id} {...item} />;
             })}
-          </div> */}
+          </div>
           <div className={styles.cart__bottom}>
-            <div className={styles.cart__bottomDetails}>
+            <div className={styles.cart__bottom_details}>
               <span>
                 Всего комиксов: <b>{totalCount}</b>
               </span>
@@ -113,7 +110,7 @@ function Cart() {
                 Сумма заказа: <b>{totalPrice} ₽</b>
               </span>
             </div>
-            <div className={styles.cart__bottomButtons}>
+            <div className={styles.cart__bottom_buttons}>
               <Link className={styles.btn__back} to="/">
                 <svg
                   width="8"

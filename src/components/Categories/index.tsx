@@ -1,9 +1,9 @@
-import React, { memo, useState } from "react";
+import React from "react";
 
 import styles from "../Categories/categories.module.scss";
 import { categoryNames } from "../../designations";
-import { setCategoryIndex } from "../../redux/slices/filtersReducer";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { setCategoryIndex } from "../../redux/filters/filtersReducer";
+import { useAppDispatch } from "../../redux/hooks";
 
 type IndexProps = number | null;
 

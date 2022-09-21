@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { cartReducer } from "./slices/cartReducer";
-import { comixReducer } from "./slices/comixReducer";
-import { filterReducer } from "./slices/filtersReducer";
+import { cartReducer } from "./cart/cartReducer";
+import { comixReducer } from "./comix/comixReducer";
+import { filterReducer } from "./filters/filtersReducer";
 
 const store = configureStore({
   reducer: {

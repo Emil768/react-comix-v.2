@@ -1,13 +1,12 @@
-import React from "react";
 import { Route, Routes } from "react-router-dom";
 
-import "./App.css";
+import styles from "./App.module.scss";
 import { Header } from "./components";
 import { Content, Cart } from "./pages";
 
 function App() {
   return (
-    <div className="App">
+    <div className={styles.App}>
       <Header />
       <Routes>
         <Route path="/" element={<Content />} />

@@ -1,4 +1,4 @@
-export { default as CartItem } from "./CartItem";
+export { default as CartItem } from "./CartItem/index";
 export { default as Categories } from "./Categories";
 export { default as ComixBlock } from "./ComixBlock";
 export { default as Header } from "./Header";

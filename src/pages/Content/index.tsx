@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import styles from "./Content.module.scss";
 
 import {
@@ -9,7 +9,7 @@ import {
   LoadingBlock,
 } from "../../components";
 
-import { fetchComix } from "../../redux/slices/comixReducer";
+import { fetchComix } from "../../redux/comix/comixReducer";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { ClipLoader } from "react-spinners";
 

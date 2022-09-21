@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, memo } from "react";
 import styles from "../SortPopup/SortPopup.module.scss";
 import { sortNames } from "../../designations";
 import { useAppDispatch } from "../../redux/hooks";
-import { setSortType } from "../../redux/slices/filtersReducer";
+import { setSortType } from "../../redux/filters/filtersReducer";
 
 type PopupClick = MouseEvent & {
   path: Node[];

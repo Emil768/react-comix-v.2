@@ -1,37 +1,52 @@
 import React from "react";
-import "./CartItem.scss";
-function CartItem({
-  id,
-  name,
-  img,
-  totalPrice,
-  itemCount,
-  removeItem,
-  plusComix,
-  minusComix,
-}) {
+import { useAppDispatch } from "../../redux/hooks";
+import {
+  minusItemCart,
+  plusItemCart,
+  removeItemCart,
+} from "../../redux/cart/cartReducer";
+
+import styles from "./CartItem.module.scss";
+
+interface CartProps {
+  id: number;
+  imageUrl: string;
+  name: string;
+  totalCount?: number;
+  totalPrice?: number;
+}
+
+function CartItem({ id, name, imageUrl, totalPrice, totalCount }: CartProps) {
+  const dispatch = useAppDispatch();
   let handleRemoveClick = () => {
-    removeItem(id);
+    const confirm = window.confirm("Вы действительно хотите удалить элемент?");
+    if (confirm) {
+      dispatch(removeItemCart(id));
+    }
   };
 
   let handlePlusComix = () => {
-    plusComix(id);
+    dispatch(plusItemCart(id));
   };
 
   let handleMinuxComix = () => {
-    minusComix(id);
+    dispatch(minusItemCart(id));
   };
+
   return (
-    <div className="cart__item">
-      <div className="cart__item-info">
-        <div className="cart__item-img">
-          <img src={img} alt="cart-img" />
+    <div className={styles.cart__item}>
+      <div className={styles.cart__item_info}>
+        <div className={styles.cart__item_img}>
+          <img src={imageUrl} alt="cart-img" />
         </div>
         <h3>{name}</h3>
       </div>
-      <div className="cart__item-counter">
-        <div className="cart__item-count">
-          <div onClick={handleMinuxComix} className="btn btn-count">
+      <div className={styles.cart__item_counter}>
+        <div className={styles.cart__item_count}>
+          <div
+            onClick={handleMinuxComix}
+            className={[styles.btn, styles.btn__count].join(" ")}
+          >
             <svg
               width="10"
               height="2"
@@ -45,8 +60,11 @@ function CartItem({
               />
             </svg>
           </div>
-          <b>{itemCount}</b>
-          <div onClick={handlePlusComix} className="btn btn-count">
+          <b>{totalCount}</b>
+          <div
+            onClick={handlePlusComix}
+            className={[styles.btn, styles.btn__count].join(" ")}
+          >
             <svg
               width="10"
               height="10"
@@ -61,13 +79,13 @@ function CartItem({
             </svg>
           </div>
         </div>
-        <div className="cart__item-price">
+        <div className={styles.cart__item_price}>
           <b>
             <span>{totalPrice}</span> ₽
           </b>
         </div>
-        <div onClick={handleRemoveClick} className="cart__item-close">
-          <div className="btn btn-close">
+        <div onClick={handleRemoveClick} className={styles.cart__item_close}>
+          <div className={[styles.btn, styles.btn__close].join(" ")}>
             <svg
               width="16"
               height="16"

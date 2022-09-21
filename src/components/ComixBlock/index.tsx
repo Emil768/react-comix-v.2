@@ -1,6 +1,5 @@
-import React, { FC, useState } from "react";
-import { useAppDispatch } from "../../redux/hooks";
-import { setItemsCart } from "../../redux/slices/cartReducer";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { setItemsCart } from "../../redux/cart/cartReducer";
 import styles from "./ComixBlock.module.scss";
 
 interface ComixProps {
@@ -21,8 +20,9 @@ const ComixBlock = ({
   rating,
 }: ComixProps) => {
   const dispatch = useAppDispatch();
+  const { items } = useAppSelector((state) => state.cart);
 
-  const [count, setCount] = useState(0);
+  const totalCount = items.find((item) => item.id === id)?.totalCount;
 
   const addItemToCart = () => {
     const items = {
@@ -44,7 +44,9 @@ const ComixBlock = ({
         <span className={styles.comix__price}>{price} ₽</span>
         <span className={styles.comix__buy} onClick={addItemToCart}>
           Купить{" "}
-          {count !== 0 ? <b className={styles.comix__count}>{count}</b> : null}
+          {totalCount ? (
+            <b className={styles.comix__count}>{totalCount}</b>
+          ) : null}
         </span>
       </div>
     </div>

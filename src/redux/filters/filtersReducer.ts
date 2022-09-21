@@ -1,23 +1,6 @@
-import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface SortProps {
-  type: string;
-  order: string;
-}
-
-interface FiltersProps {
-  category: number | null;
-  sortBy: SortProps;
-}
-
-const initialState: FiltersProps = {
-  category: null,
-  sortBy: {
-    type: "rating",
-    order: "desc",
-  },
-};
+import { initialState, SortProps } from "./types";
 
 const filters = createSlice({
   name: "filters",

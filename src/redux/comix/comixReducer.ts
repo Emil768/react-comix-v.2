@@ -1,29 +1,7 @@
-import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-interface Comix {
-  id: number;
-  imageUrl: string;
-  name: string;
-  price: number;
-  category: number;
-  rating: number;
-}
-
-interface SortProps {
-  type: string;
-  order: string;
-}
-
-interface FilterProps {
-  category: number | null;
-  sortBy: SortProps;
-}
-
-interface ComixState {
-  comix: Comix[];
-  status: string;
-}
+import { Comix, ComixState, FilterProps } from "./types";
 
 export const fetchComix = createAsyncThunk<Comix[], FilterProps>(
   "comix/fetchComix",
