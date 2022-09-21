@@ -19,5 +19,6 @@ export interface FilterProps {
 
 export interface ComixState {
   comix: Comix[];
+  comixContainer: Comix[];
   status: string;
 }

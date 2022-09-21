@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 
 import { Comix, ComixState, FilterProps } from "./types";
@@ -19,13 +19,22 @@ export const fetchComix = createAsyncThunk<Comix[], FilterProps>(
 
 const initialState: ComixState = {
   comix: [],
+  comixContainer: [],
   status: "loading",
 };
 
 const comixSlice = createSlice({
   name: "comix",
   initialState,
-  reducers: {},
+  reducers: {
+    setSearchComix(state, action: PayloadAction<string>) {
+      const findItem = state.comixContainer.filter(
+        (item) =>
+          item.name.toLowerCase().indexOf(action.payload.toLowerCase()) !== -1
+      );
+      state.comix = findItem;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchComix.pending, (state) => {
@@ -33,6 +42,7 @@ const comixSlice = createSlice({
       })
       .addCase(fetchComix.fulfilled, (state, action) => {
         state.comix = action.payload;
+        state.comixContainer = action.payload;
         state.status = "loaded";
       })
       .addCase(fetchComix.rejected, (state) => {
@@ -41,5 +51,7 @@ const comixSlice = createSlice({
       });
   },
 });
+
+export const { setSearchComix } = comixSlice.actions;
 
 export const comixReducer = comixSlice.reducer;

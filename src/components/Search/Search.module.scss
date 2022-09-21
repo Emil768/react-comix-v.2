@@ -1,0 +1,26 @@
+.search {
+  position: relative;
+  &__input {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 12px 20px;
+    padding-left: 42px;
+    width: 400px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    &:focus {
+      border: 1px solid rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  &__icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.3;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    cursor: pointer;
+  }
+}

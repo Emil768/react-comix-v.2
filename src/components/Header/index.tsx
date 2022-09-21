@@ -5,6 +5,7 @@ import logo from "../../img/42344a3a55c3c39a6909d8c0d28ffb27 1.png";
 import { Link } from "react-router-dom";
 import Container from "../Container";
 import { useAppSelector } from "../../redux/hooks";
+import Search from "../Search";
 
 function Header() {
   const { totalCount, totalPrice } = useAppSelector((state) => state.cart);
@@ -19,6 +20,7 @@ function Header() {
               <h2>Лавка комиксов</h2>
             </div>
           </Link>
+          <Search />
           <div className={styles.header__cart}>
             <Link to="/cart">
               <span>{totalPrice} ₽</span>

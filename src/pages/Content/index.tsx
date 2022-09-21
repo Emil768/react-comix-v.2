@@ -12,6 +12,7 @@ import {
 import { fetchComix } from "../../redux/comix/comixReducer";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { ClipLoader } from "react-spinners";
+import { categoryNames } from "../../designations";
 
 function Content() {
   const dispatch = useAppDispatch();
@@ -19,6 +20,7 @@ function Content() {
   const { category, sortBy } = useAppSelector((state) => state.filter);
 
   const isLoaded = Boolean(status === "loaded");
+  const categoryName = categoryNames[category!];
 
   useEffect(() => {
     dispatch(fetchComix({ category, sortBy }));
@@ -31,7 +33,9 @@ function Content() {
           <Categories activeCategory={category} />
           <SortPopup activeSortType={sortBy} />
         </div>
-        <h2 className={styles.content__title}>Все комиксы</h2>
+        <h2 className={styles.content__title}>
+          {categoryName == null ? "Все комиксы" : categoryName}
+        </h2>
         <div className={styles.content__items}>
           {
             isLoaded

@@ -4,4 +4,5 @@ export { default as ComixBlock } from "./ComixBlock";
 export { default as Header } from "./Header";
 export { default as LoadingBlock } from "./LoadingBlock";
 export { default as SortPopup } from "./SortPopup";
+export { default as Search } from "./Search";
 export { default as Container } from "./Container";
