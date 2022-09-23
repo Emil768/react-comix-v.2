@@ -1,4 +1,4 @@
-# ⚡React-comix.v2⚡
+# 📘React-comix.v2📘
 
 ## 🛠 Технологии:
 - ReactJS 18
