@@ -1,0 +1,66 @@
+.footer {
+  padding: 20px 0;
+  &__links {
+    display: flex;
+    justify-content: center;
+  }
+  &__link {
+    width: 25px;
+
+    display: flex;
+    margin-left: 10px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    svg {
+      opacity: 0.6;
+      transition: all ease 0.2s;
+    }
+  }
+  .link {
+    &_telegram {
+      &:hover {
+        fill: #29b6f6;
+        opacity: 1;
+      }
+    }
+    &_vk {
+      &:hover {
+        fill: #1976d2;
+        opacity: 1;
+      }
+    }
+    &_git {
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .footer {
+    &__info {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .footer {
+    &__info {
+      margin-bottom: 10px;
+      line-height: 25px;
+    }
+  }
+}
+
+@media (max-width: 329px) {
+  .footer {
+    &__link {
+      width: 30px;
+    }
+  }
+}
