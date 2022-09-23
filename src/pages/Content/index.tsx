@@ -52,7 +52,7 @@ function Content() {
               </div>
             )
           ) : (
-            Array(comix.length)
+            Array(10)
               .fill(0)
               .map((_, index) => <LoadingBlock key={index} />)
           )}
