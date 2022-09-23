@@ -5,6 +5,7 @@
 - Typescript
 - React-toolkit
 - React-redux
+- Json-server
 - Axios
 
 Веб-сайт 👉 [https://react-comix.herokuapp.com/](https://react-comix.herokuapp.com/)
