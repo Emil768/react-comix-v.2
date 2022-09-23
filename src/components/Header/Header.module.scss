@@ -49,10 +49,29 @@
 
 //media
 
-@media (max-width: 550px) {
+@media (max-width: 784px) {
+  .header {
+    &__cart {
+      margin-top: 20px;
+    }
+  }
+}
+
+@media (max-width: 621px) {
   .header {
     &__logo {
       margin-bottom: 20px;
+    }
+    &__cart {
+      margin-top: 0;
+    }
+  }
+}
+
+@media (max-width: 481px) {
+  .header {
+    &__cart {
+      margin-top: 20px;
     }
   }
 }

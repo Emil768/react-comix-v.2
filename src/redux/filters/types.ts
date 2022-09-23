@@ -6,6 +6,7 @@ export interface SortProps {
 export interface FiltersProps {
   category: number | null;
   sortBy: SortProps;
+  currentPage: number;
 }
 
 export const initialState: FiltersProps = {
@@ -14,4 +15,5 @@ export const initialState: FiltersProps = {
     type: "rating",
     order: "desc",
   },
+  currentPage: 1,
 };

@@ -15,10 +15,14 @@ const filters = createSlice({
         order: action.payload.order,
       };
     },
+    setCurrentPage(state, action: PayloadAction<number>) {
+      state.currentPage = action.payload;
+    },
   },
   extraReducers: (builder) => {},
 });
 
-export const { setCategoryIndex, setSortType } = filters.actions;
+export const { setCategoryIndex, setSortType, setCurrentPage } =
+  filters.actions;
 
 export const filterReducer = filters.reducer;

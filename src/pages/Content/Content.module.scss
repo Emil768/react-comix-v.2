@@ -15,7 +15,26 @@
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
+    margin-bottom: 20px;
   }
+
+  &__empty {
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 0 15px;
+    text-align: center;
+    h1 {
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+    img {
+      max-width: 100%;
+    }
+  }
+
   .flex-start {
     display: flex;
     justify-content: flex-start;
@@ -33,6 +52,19 @@
     }
     .flex-start {
       justify-content: space-around;
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .content {
+    &__empty {
+      h1 {
+        font-size: 20px;
+      }
+      p {
+        font-size: 14px;
+      }
     }
   }
 }

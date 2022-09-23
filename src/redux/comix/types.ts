@@ -15,10 +15,17 @@ export interface SortProps {
 export interface FilterProps {
   category: number | null;
   sortBy: SortProps;
+  currentPage: number;
 }
 
 export interface ComixState {
   comix: Comix[];
   comixContainer: Comix[];
+  totalCount: number;
   status: string;
+}
+
+export interface ComixTotal {
+  data: Comix[];
+  allComix: number;
 }

@@ -1,0 +1,25 @@
+.pagination {
+  display: flex;
+  &__item {
+    font-size: 16px;
+    padding: 11px 18px;
+    margin-left: 10px;
+    color: #e34d4d;
+    border: 1px solid #e34d4d;
+    border-radius: 50%;
+    &:hover {
+      background-color: #e34d4d;
+      color: #fff;
+      cursor: pointer;
+    }
+    &_active {
+      background-color: #e34d4d;
+      color: #fff;
+    }
+  }
+}
+@media (max-width: 481px) {
+  .pagination {
+    justify-content: center;
+  }
+}
