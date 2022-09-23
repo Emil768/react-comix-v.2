@@ -8,12 +8,12 @@ export const fetchComix = createAsyncThunk<ComixTotal, FilterProps>(
   async (params) => {
     const { category, sortBy, currentPage } = params;
     const { data } = await axios.get(
-      `http://localhost:3001/comix?_page=${currentPage}&_limit=10&${
+      `/comix?_page=${currentPage}&_limit=10&${
         category !== null ? `category=${category}` : ""
       }&_sort=${sortBy.type}&_order=${sortBy.order}`
     );
 
-    const comix = await axios.get(`http://localhost:3001/comix`);
+    const comix = await axios.get(`/comix`);
     const allComix: number = await comix.data.length;
 
     return {
