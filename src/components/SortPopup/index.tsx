@@ -26,6 +26,8 @@ let SortPopup = memo(function SortPopup({
     (item) => item.type === activeSortType.type
   )?.name;
 
+  console.log(activeLabel);
+
   const changeModal = () => {
     setModal(!modal);
   };
@@ -73,7 +75,7 @@ let SortPopup = memo(function SortPopup({
             {sortNames.map((obj: any, index: any) => {
               return (
                 <li
-                  className={activeLabel === obj.type ? styles.active : null}
+                  className={activeLabel === obj.name ? styles.active : null}
                   onClick={() => onSelectItem(obj)}
                   key={index}
                 >
