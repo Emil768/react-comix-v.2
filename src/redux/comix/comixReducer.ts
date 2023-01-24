@@ -14,6 +14,7 @@ export const fetchComix = createAsyncThunk<ComixTotal, FilterProps>(
     );
 
     const comix = await axios.get(`/comix`);
+
     const allComix: number = await comix.data.length;
 
     return {

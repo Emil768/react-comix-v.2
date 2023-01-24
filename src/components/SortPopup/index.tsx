@@ -4,10 +4,6 @@ import { sortNames } from "../../designations";
 import { useAppDispatch } from "../../redux/hooks";
 import { setSortType } from "../../redux/filters/filtersReducer";
 
-type PopupClick = MouseEvent & {
-  path: Node[];
-};
-
 interface SortTypeProps {
   type: string;
   order: string;
@@ -26,8 +22,6 @@ let SortPopup = memo(function SortPopup({
     (item) => item.type === activeSortType.type
   )?.name;
 
-  console.log(activeLabel);
-
   const changeModal = () => {
     setModal(!modal);
   };
@@ -38,18 +32,16 @@ let SortPopup = memo(function SortPopup({
     setModal(false);
   };
 
-  const sortRef = useRef<HTMLDivElement>(null);
+  const sortRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const handleOutsideClick = (event: MouseEvent) => {
-      const _event = event as PopupClick;
-
-      if (sortRef.current && !_event.path.includes(sortRef.current)) {
+    function handleOutsideClick(event: MouseEvent) {
+      if (!sortRef.current?.contains(event.target as Node)) {
         setModal(false);
       }
-    };
-    document.body.addEventListener("click", handleOutsideClick);
-    return () => document.body.removeEventListener("click", handleOutsideClick);
+    }
+    window.addEventListener("click", handleOutsideClick);
+    return () => window.removeEventListener("click", handleOutsideClick);
   }, []);
 
   return (

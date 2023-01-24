@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./Header.module.scss";
 import logo from "../../img/42344a3a55c3c39a6909d8c0d28ffb27 1.png";
 
