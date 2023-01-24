@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import axios from "axios";
+import axios from "../../utils/axios";
 
 import { ComixState, ComixTotal, FilterProps } from "./types";
 
